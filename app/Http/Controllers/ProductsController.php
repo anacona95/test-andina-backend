@@ -3,20 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Productos;
+use App\Models\Products\Products;
 
 class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(Products $model)
     {
-       $productos = Productos::all();
-       return $productos;
-
+       return response()->json(["data" => $model->all()]);
     }
 
     /**
