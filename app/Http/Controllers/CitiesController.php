@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Productos;
+use App\Models\Ciudades;
 
-class ProductoController extends Controller
+class CitiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-       $productos = Productos::all();
-       return $productos;
-
+        $ciudades = Ciudades::all();
+       return $ciudades;
     }
 
     /**
@@ -37,14 +36,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $producto =new Productos();
-        $producto-> id = null;
-        $producto-> nombre = $request->nombre;
-        $producto-> precio = $request->precio;
-        $producto-> cantidad = $request->cantidad;
-        $producto-> observaciones = $request->observaciones;
-
-        $producto->save();
+        //
     }
 
     /**
@@ -76,16 +68,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $producto =  Productos::findOrFail($request->id);
-        $producto-> nombre = $request->nombre;
-        $producto-> precio = $request->precio;
-        $producto-> cantidad = $request->cantidad;
-        $producto-> observaciones = $request->observaciones;
-
-        $producto->save();
-        return $producto;
+        //
     }
 
     /**
@@ -94,9 +79,8 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $producto = Productos::destroy($request->id);
-        return $producto;
+        //
     }
 }

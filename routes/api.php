@@ -18,8 +18,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/products','App\Http\Controllers\ProductoController@index');//mostrar todos los productos
-Route::post('/products','App\Http\Controllers\ProductoController@store');//crear un producto
-Route::put('/products/{id}','App\Http\Controllers\ProductoController@update');//actualizar un producto
-Route::delete('/products/{id}','App\Http\Controllers\ProductoController@destroy');//eliminar un producto
-Route::get('/cities','App\Http\Controllers\CiudadController@index');//mostrar todas las ciudades
+Route::get('/products',['App\Http\Controllers\ProductsController','index']);//mostrar todos los productos
+Route::post('/products',['App\Http\Controllers\ProductsController', 'store']);//crear un producto
+Route::put('/products/{id}',['App\Http\Controllers\ProductsController','update']);//actualizar un producto
+Route::delete('/products/{id}',['App\Http\Controllers\ProductsController', 'destroy']);//eliminar un producto
+Route::get('/cities',['App\Http\Controllers\CitiesController', 'index']);//mostrar todas las ciudades
