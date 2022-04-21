@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cities\Cities;
 use Illuminate\Http\Request;
-use App\Models\Ciudades;
 
 class CitiesController extends Controller
 {
@@ -12,10 +12,9 @@ class CitiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( Cities $model)
     {
-        $ciudades = Ciudades::all();
-       return $ciudades;
+       return response()->json($model->all());
     }
 
     /**
