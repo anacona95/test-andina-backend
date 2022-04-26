@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cities\Cities;
+use App\Models\Products_Cities\Products_Cities;
 use Illuminate\Http\Request;
 
-class CitiesController extends Controller
+class ProductsCitiesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index( Cities $model)
+    public function index( Products_Cities $model)
     {
-       return response()->json($model->all());
     }
 
     /**
@@ -24,7 +23,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -46,6 +45,7 @@ class CitiesController extends Controller
      */
     public function show($id)
     {
+        $productCities = ProductCities::find($id);
     }
 
     /**

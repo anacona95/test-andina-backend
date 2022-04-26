@@ -14,7 +14,7 @@ class ProductsController extends Controller
      */
     public function index(Products $model)
     {
-       return response()->json(["data" => $model->all()]);
+       return $model->all();
     }
 
     /**
@@ -35,14 +35,15 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $producto =new Productos();
-        $producto-> id = null;
-        $producto-> nombre = $request->nombre;
-        $producto-> precio = $request->precio;
-        $producto-> cantidad = $request->cantidad;
-        $producto-> observaciones = $request->observaciones;
+        $product =new Products();
+        $product-> id = null;
+        $product-> name= $request->nome;
+        $product-> price = $request->price;
+        $product-> quantity = $request->quantity;
+        $product-> observations = $request->observations;
 
-        $producto->save();
+
+        $product->save();
     }
 
     /**
@@ -76,14 +77,15 @@ class ProductsController extends Controller
      */
     public function update(Request $request)
     {
-        $producto =  Productos::findOrFail($request->id);
-        $producto-> nombre = $request->nombre;
-        $producto-> precio = $request->precio;
-        $producto-> cantidad = $request->cantidad;
-        $producto-> observaciones = $request->observaciones;
+        $product =  Products::findOrFail($request->id);
+        $product-> name = $request->name;
+        $product-> price = $request->price;
+        $product-> quantity = $request->quantity;
+        $product-> observations = $request->observations;
 
-        $producto->save();
-        return $producto;
+
+        $product->save();
+        return $product;
     }
 
     /**
@@ -92,9 +94,13 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy(Request $request, Products $model)
     {
-        $producto = Productos::destroy($request->id);
-        return $producto;
+        $response = $model->find($request->id);
+        return $response->delete();
     }
+
+
+
+
 }

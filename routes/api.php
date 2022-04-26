@@ -23,3 +23,4 @@ Route::post('/products',['App\Http\Controllers\ProductsController', 'store']);//
 Route::put('/products/{id}',['App\Http\Controllers\ProductsController','update']);//actualizar un producto
 Route::delete('/products/{id}',['App\Http\Controllers\ProductsController', 'destroy']);//eliminar un producto
 Route::get('/cities',['App\Http\Controllers\CitiesController', 'index']);//mostrar todas las ciudades
+Route::get('/productCities/{id}',['App\Http\Controllers\ProductsCitiesController','show']);
